@@ -8,4 +8,7 @@ def index():
             {"name": "oranges", "quantity": 2},
             {"name": "strawberries", "quantity": 6}
     ]
-    return render_template("index.html", fruits=fruits)
+
+    new_fruits = [fruit for fruit in fruits if 'o' in fruit['name'].lower() and fruit['quantity'] < 3]
+
+    return render_template("index.html", fruits=new_fruits)
